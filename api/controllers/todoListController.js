@@ -28,7 +28,7 @@ exports.read_a_task = (req, res) => {
 };
 
 exports.update_a_task = (req, res) => {
-    Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, (err, task) =>{
+    Task.findByIdAndUpdate({_id: req.params.taskId}, req.body, {new: true}, (err, task) =>{
         if (err)
             res.send(err);
         res.json(task);
@@ -36,8 +36,8 @@ exports.update_a_task = (req, res) => {
 };
 
 exports.delete_a_task = (req, res) => {
-    Task.remove({
-        id_: eq.params.taskId
+    Task.deleteOne({
+        _id: req.params.taskId
     }, (err, task) => {
         if (err)
             res.send(err);

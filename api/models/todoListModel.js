@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var TaskSchema = new Schema({
     name:{
         type: String,
-        required: 'Finalizar Teste de Procedure do Reg 0000.'
+        required: true
     },
     Created_date:{
         type: Date,
